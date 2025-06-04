@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../../styles/globals.css";
+import "../styles/globals.css";
 import { DM_Sans } from "next/font/google";
 
 const dmSans = DM_Sans({
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${dmSans.variable} antialiased`}>{children}</body>
     </html>
   );

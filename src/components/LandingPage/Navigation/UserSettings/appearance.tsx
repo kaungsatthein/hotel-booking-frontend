@@ -8,7 +8,7 @@ import {
   DropdownMenuRadioItem,
 } from "../../../ui/dropdown-menu";
 import { SunMoon } from "lucide-react";
-import React, { useState } from "react";
+import { useTheme } from "next-themes";
 
 const appearanceOptions = [
   { value: "light", label: "Light" },
@@ -17,7 +17,7 @@ const appearanceOptions = [
 ];
 
 const Appearance = () => {
-  const [theme, setTheme] = useState("light");
+  const { theme, setTheme } = useTheme();
   return (
     <DropdownMenuSub>
       <DropdownMenuSubTrigger>
