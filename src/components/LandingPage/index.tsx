@@ -1,11 +1,13 @@
 import MainNav from "./Navigation";
-import React from "react";
+import Hero from "./Hero";
 
 const LandingPage = () => {
   return (
     <div>
       <MainNav />
-      <div className=" bg-sky-400 h-screen">hi</div>
+      <div className="px-16 py-6">
+        <Hero />
+      </div>
     </div>
   );
 };

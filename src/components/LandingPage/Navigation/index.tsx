@@ -5,7 +5,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "../../ui/navigation-menu";
-import { BookmarkCheck, Hotel, House } from "lucide-react";
+import { BookmarkCheck, Bus, Hotel, House, TicketsPlane } from "lucide-react";
 import { NavLinkProps } from "./props.type";
 import UserSetting from "./UserSettings";
 import UserSignUp from "./user-signup";
@@ -22,6 +22,16 @@ const navLinks: NavLinkProps[] = [
     icon: Hotel,
   },
   {
+    name: "Flights",
+    href: "/flights",
+    icon: TicketsPlane,
+  },
+  {
+    name: "Buses",
+    href: "/bus",
+    icon: Bus,
+  },
+  {
     name: "My Bookings",
     href: "/my-bookings",
     icon: BookmarkCheck,
@@ -35,7 +45,7 @@ const MainNav = () => {
     <nav className=" sticky w-full top-0 z-50 bg-background/80 backdrop-blur-lg border-b supports-[backdrop-filter]:bg-background/60">
       <div className="flex flex-row items-center justify-between h-16 px-16">
         <Link href="/" className="text-2xl font-bold text-primary">
-          Hotel Booking
+          Travel Booking
         </Link>
 
         <NavigationMenu>
