@@ -41,8 +41,8 @@ export default function NotificationsInfo({
         notifications.map((notification) => (
           <div
             key={notification.id}
-            className={`p-4 border-b last:border-b-0 hover:bg-gray-50 transition-colors ${
-              !notification.read ? "bg-gray-100" : ""
+            className={`p-4 border-b last:border-b-0  transition-colors ${
+              !notification.read ? "bg-foreground/5" : ""
             }`}
           >
             <div className="flex items-start gap-3">
