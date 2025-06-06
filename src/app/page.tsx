@@ -1,11 +1,13 @@
 import LandingPage from "../components/LandingPage";
-import CityGallery from "../components/CityGallery";
+import CityGalleryPage from "../components/CityGalleryPage";
+import FooterPage from "../components/FooterPage";
 
 export default function Home() {
   return (
     <div>
       <LandingPage />
-      <CityGallery />
+      <CityGalleryPage />
+      <FooterPage />
     </div>
   );
 }

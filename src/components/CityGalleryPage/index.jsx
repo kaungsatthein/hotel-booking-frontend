@@ -1,6 +1,6 @@
 import Gallery from "./Gallery";
 
-const CityGallery = () => {
+const CityGalleryPage = () => {
   return (
     <div>
       <div className="px-16 pt-18 text-center">
@@ -14,4 +14,4 @@ const CityGallery = () => {
   );
 };
 
-export default CityGallery;
+export default CityGalleryPage;
