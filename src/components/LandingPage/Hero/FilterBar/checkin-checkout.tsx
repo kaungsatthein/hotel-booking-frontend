@@ -41,11 +41,10 @@ const CheckInCheckOut = () => {
 
   return (
     <div className="flex items-center">
-      <Calendar className="w-5 h-5 mr-3" />
+      <Calendar className="w-5 h-5 mr-3 flex-shrink-0" />
       <Popover open={isDatePopoverOpen} onOpenChange={setIsDatePopoverOpen}>
         <PopoverTrigger asChild>
-          <Button variant="ghost">
-            {/* <Calendar className="w-5 h-5 mr-2" /> */}
+          <Button variant="ghost" className="min-w-[250px]">
             <span>{formatDateRange()}</span>
           </Button>
         </PopoverTrigger>

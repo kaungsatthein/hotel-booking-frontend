@@ -24,7 +24,7 @@ const GuestSelector = () => {
       <Users className="w-5 h-5 mr-3" />
       <Popover open={isGuestPopoverOpen} onOpenChange={setIsGuestPopoverOpen}>
         <PopoverTrigger asChild>
-          <Button variant="ghost">
+          <Button variant="ghost" className=" min-w-[180px]">
             <span>{formatGuests()}</span>
           </Button>
         </PopoverTrigger>

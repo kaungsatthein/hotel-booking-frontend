@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 
 const FilterBar = () => {
   return (
-    <div className="bg-background/80 backdrop-blur-sm h-24 shadow-sm rounded-lg">
-      <div className="flex items-center justify-center h-full gap-20">
+    <div className="bg-background/80 backdrop-blur-sm h-24 shadow-sm rounded-lg max-w-6xl mx-auto">
+      <div className="flex items-center justify-center h-full gap-10">
         <Location />
         <CheckInCheckOut />
         <GuestSelector />
