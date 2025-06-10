@@ -1,6 +1,4 @@
-import LandingPage from "../components/LandingPage";
-import CityGalleryPage from "../components/CityGalleryPage";
-import FooterPage from "../components/FooterPage";
+import { LandingPage, CityGalleryPage, FooterPage } from "../components";
 
 export default function Home() {
   return (

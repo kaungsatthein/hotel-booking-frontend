@@ -6,7 +6,15 @@ import Image from "next/image";
 import styles from "./gallery.module.css";
 import { Button } from "../../ui/button";
 
-const cities = [
+interface CityProps {
+  id: number;
+  name: string;
+  slug: string;
+  aspect: string;
+  src: string;
+}
+
+const cities: CityProps[] = [
   {
     id: 1,
     name: "Yangon",
@@ -107,7 +115,7 @@ const cities = [
   },
 ];
 
-const getAspectRatio = (aspect) => {
+const getAspectRatio = (aspect: string) => {
   switch (aspect) {
     case "portrait":
       return "aspect-[3/4]";
@@ -123,7 +131,7 @@ const getAspectRatio = (aspect) => {
 };
 
 const Gallery = () => {
-  const [hoveredCity, setHoveredCity] = useState(null);
+  const [hoveredCity, setHoveredCity] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
 
   return (
