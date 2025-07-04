@@ -25,7 +25,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Separator } from "@/components/ui/separator";
 
 const navLinks: NavLinkProps[] = [
   {

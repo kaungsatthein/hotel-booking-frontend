@@ -1,5 +1,5 @@
 import { Button } from "../../../ui/button";
-import { ChevronDown, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
