@@ -23,12 +23,12 @@ const ImageCarousel = () => {
       <CarouselContent>
         {images.map((src, index) => (
           <CarouselItem key={index}>
-            <div className="relative aspect-[16/6] w-full">
+            <div className="relative aspect-[16/14]  md:aspect-[16/10] lg:aspect-[16/6]">
               <Image
                 src={src}
                 alt={`Slide ${index + 1}`}
                 fill
-                className="rounded-xl object-cover"
+                className="rounded-none lg:rounded-2xl object-cover"
                 priority={index === 0}
               />
             </div>

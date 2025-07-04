@@ -1,14 +1,14 @@
 const FooterPage = () => {
   return (
     <footer className="border-t py-6 px-16">
-      <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div className="container flex flex-col gap-4 items-center md:flex-row md:justify-between">
         <div className="text-center md:text-left">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} TravelBooking. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} TravelBooking. <br />
+            All rights reserved.
           </p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col items-center gap-2 md:flex-row md:items-center md:gap-4">
           <span className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Contact Us
           </span>

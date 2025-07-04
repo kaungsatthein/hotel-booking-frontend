@@ -3,7 +3,7 @@ import { LogIn, ScanFace } from "lucide-react";
 
 const UserSignUp = () => {
   return (
-    <div className="flex flex-row items-center gap-2">
+    <div className="flex flex-row items-center">
       <Button variant="link" size={"sm"}>
         <div className="flex items-center gap-2">
           <LogIn />

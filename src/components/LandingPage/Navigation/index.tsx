@@ -5,10 +5,27 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "../../ui/navigation-menu";
-import { BookmarkCheck, Bus, Hotel, House, TicketsPlane } from "lucide-react";
+import {
+  BookmarkCheck,
+  Bus,
+  Hotel,
+  House,
+  TicketsPlane,
+  Hamburger,
+} from "lucide-react";
 import { NavLinkProps } from "./props.type";
 import UserSetting from "./UserSettings";
 import UserSignUp from "./user-signup";
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Separator } from "@/components/ui/separator";
 
 const navLinks: NavLinkProps[] = [
   {
@@ -43,31 +60,71 @@ const MainNav = () => {
 
   return (
     <nav className=" sticky w-full top-0 z-50 bg-background/80 backdrop-blur-lg border-b supports-[backdrop-filter]:bg-background/60">
-      <div className="flex flex-row items-center justify-between h-16 px-16">
+      <div className="flex flex-row items-center justify-between h-16 px-4 lg:px-8">
         <Link href="/" className="text-2xl font-bold text-primary">
           Travel Booking
         </Link>
+        {/* laptop view */}
+        <div className="hidden lg:flex items-center gap-2">
+          <NavigationMenu>
+            <NavigationMenuList className="flex flex-row gap-2">
+              {navLinks.map((link) => (
+                <NavigationMenuItem key={link.name}>
+                  <Link
+                    href={link.href}
+                    className={
+                      navigationMenuTriggerStyle() +
+                      " flex flex-row items-start gap-2"
+                    }
+                  >
+                    <link.icon className="h-4 w-4" />
+                    <span>{link.name}</span>
+                  </Link>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
 
-        <NavigationMenu>
-          <NavigationMenuList className="flex flex-row gap-2">
-            {navLinks.map((link) => (
-              <NavigationMenuItem key={link.name}>
-                <Link
-                  href={link.href}
-                  className={
-                    navigationMenuTriggerStyle() +
-                    " flex flex-row items-start gap-2"
-                  }
-                >
-                  <link.icon className="h-4 w-4" />
-                  <span>{link.name}</span>
-                </Link>
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+        <div className="flex items-center">
+          {isAuthenticated ? <UserSetting /> : <UserSignUp />}
 
-        {isAuthenticated ? <UserSetting /> : <UserSignUp />}
+          <Drawer direction="right">
+            <DrawerTrigger asChild>
+              <Button variant="outline" size={"sm"} className="lg:hidden">
+                <Hamburger className="h-6 w-6" />
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>Our Services</DrawerTitle>
+                <DrawerDescription>
+                  Please select your choice.
+                </DrawerDescription>
+              </DrawerHeader>
+              <div>
+                <NavigationMenu>
+                  <NavigationMenuList className="flex flex-col items-start gap-2 ">
+                    {navLinks.map((link) => (
+                      <NavigationMenuItem key={link.name}>
+                        <Link
+                          href={link.href}
+                          className={
+                            navigationMenuTriggerStyle() +
+                            " flex flex-row items-start gap-2"
+                          }
+                        >
+                          <link.icon className="h-4 w-4" />
+                          <span>{link.name}</span>
+                        </Link>
+                      </NavigationMenuItem>
+                    ))}
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </div>
       </div>
     </nav>
   );

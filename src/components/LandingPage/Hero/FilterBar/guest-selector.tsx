@@ -21,10 +21,10 @@ const GuestSelector = () => {
 
   return (
     <div className="flex items-center">
-      <Users className="w-5 h-5 mr-3" />
+      <Users className="w-5 h-5 mr-3 flex-shrink-0" />
       <Popover open={isGuestPopoverOpen} onOpenChange={setIsGuestPopoverOpen}>
         <PopoverTrigger asChild>
-          <Button variant="ghost" className=" min-w-[180px]">
+          <Button variant="ghost" className=" min-w-[180px] justify-between">
             <span>{formatGuests()}</span>
           </Button>
         </PopoverTrigger>

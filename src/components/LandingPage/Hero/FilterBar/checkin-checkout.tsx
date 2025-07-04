@@ -44,7 +44,7 @@ const CheckInCheckOut = () => {
       <Calendar className="w-5 h-5 mr-3 flex-shrink-0" />
       <Popover open={isDatePopoverOpen} onOpenChange={setIsDatePopoverOpen}>
         <PopoverTrigger asChild>
-          <Button variant="ghost" className="min-w-[250px]">
+          <Button variant="ghost" className="w-[200px] justify-between">
             <span>{formatDateRange()}</span>
           </Button>
         </PopoverTrigger>

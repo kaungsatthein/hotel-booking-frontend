@@ -21,7 +21,7 @@ const user = {
 
 const UserSetting = () => {
   return (
-    <div className="flex flex-row items-center gap-2">
+    <div className="flex flex-row items-center">
       <Notifications />
 
       <DropdownMenu>
@@ -31,7 +31,7 @@ const UserSetting = () => {
               <AvatarImage src={user.image} alt={user.name} />
               <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
             </Avatar>
-            <ChevronDown />
+            {/* <ChevronDown /> */}
           </Button>
         </DropdownMenuTrigger>
 

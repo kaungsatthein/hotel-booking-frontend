@@ -136,11 +136,11 @@ const Gallery = () => {
 
   return (
     <div
-      className={`px-16 py-6 relative ${
+      className={`px-2 sm:px-4 md:px-8 py-4 md:py-6 relative ${
         !showAll ? "max-h-screen overflow-hidden" : ""
       }`}
     >
-      <div className="columns-4 space-y-4 gap-4">
+      <div className="columns-2 md:columns-3 lg:columns-4 space-y-4 gap-4">
         {cities.map((city, index) => (
           <Link
             key={city.id}
