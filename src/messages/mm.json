@@ -1,0 +1,34 @@
+{
+  "Navigation": {
+    "Home": "ပင်မစာမျက်နှာ",
+    "Hotels": "ဟိုတယ်များ",
+    "Flights": "လေယာဉ်ခရီးစဉ်များ",
+    "Buses": "ဘတ်စ်ကားများ",
+    "MyBookings": "ကျွန်ုပ်၏ဘွတ်ကင်များ"
+  },
+  "UserSettings": {
+    "Appearance": "အပြင်အဆင်",
+    "Language": "ဘာသာစကား",
+    "Logout": "အကောင့်မှထွက်မည်",
+    "Light": "အလင်း",
+    "Dark": "အမှောင်",
+    "System": "စနစ်အတိုင်း",
+    "English": "အင်္ဂလိပ်",
+    "Myanmar": "မြန်မာ"
+  },
+  "FilterBar": {
+    "SelectLocation": "တည်နေရာရွေးပါ",
+    "CheckInCheckOut": "အဝင် - အထွက် နေ့စွဲ",
+    "Guest": "ဧည့်သည်",
+    "Room": "အခန်း",
+    "Adults": "လူကြီးများ",
+    "Children": "ကလေးများ",
+    "Ages13OrAbove": "အသက် ၁၃ နှစ်နှင့်အထက်",
+    "Ages0To12": "အသက် ၀-၁၂ နှစ်",
+    "Search": "ရှာမည်"
+  },
+  "Footer": {
+    "AllRightsReserved": "မူပိုင်ခွင့်များ လေးစားထိန်းသိမ်းထားသည်။",
+    "ContactUs": "ဆက်သွယ်ရန်"
+  }
+}

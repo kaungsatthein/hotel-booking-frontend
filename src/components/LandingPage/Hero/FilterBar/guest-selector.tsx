@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import { Button } from "../../../ui/button";
 import { Users } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const GuestSelector = () => {
   const [isGuestPopoverOpen, setIsGuestPopoverOpen] = useState(false);
@@ -11,11 +12,11 @@ const GuestSelector = () => {
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
 
+  const t = useTranslations("FilterBar");
+
   const formatGuests = () => {
-    const guestText = `${adults + children} ${
-      adults + children === 1 ? "guest" : "guests"
-    }`;
-    const roomText = `${rooms} ${rooms === 1 ? "room" : "rooms"}`;
+    const guestText = `${adults + children} ${t("Guest")}`;
+    const roomText = `${rooms} ${t("Room")}`;
     return `${guestText} · ${roomText}`;
   };
 
@@ -32,9 +33,9 @@ const GuestSelector = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <div className="font-medium">Adults</div>
+                <div className="font-medium">{t("Adults")}</div>
                 <div className="text-sm text-muted-foreground">
-                  Ages 13 or above
+                  {t("Ages13OrAbove")}
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -62,8 +63,8 @@ const GuestSelector = () => {
 
             <div className="flex items-center justify-between">
               <div>
-                <div className="font-medium">Children</div>
-                <div className="text-sm text-muted-foreground">Ages 0-12</div>
+                <div className="font-medium">{t("Children")}</div>
+                <div className="text-sm text-muted-foreground">{t("Ages0To12")}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <Button
@@ -90,7 +91,7 @@ const GuestSelector = () => {
 
             <div className="flex items-center justify-between">
               <div>
-                <div className="font-medium">Rooms</div>
+                <div className="font-medium">{t("Room")}</div>
               </div>
               <div className="flex items-center space-x-2">
                 <Button

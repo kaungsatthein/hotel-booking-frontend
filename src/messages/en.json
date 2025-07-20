@@ -1,0 +1,34 @@
+{
+  "Navigation": {
+    "Home": "Home",
+    "Hotels": "Hotels",
+    "Flights": "Flights",
+    "Buses": "Buses",
+    "MyBookings": "My Bookings"
+  },
+  "UserSettings": {
+    "Appearance": "Appearance",
+    "Language": "Language",
+    "Logout": "Logout",
+    "Light": "Light",
+    "Dark": "Dark",
+    "System": "System",
+    "English": "English",
+    "Myanmar": "Myanmar"
+  },
+  "FilterBar": {
+    "SelectLocation": "Select Location",
+    "CheckInCheckOut": "Check in - Check out date",
+    "Guest": "guest",
+    "Room": "room",
+    "Adults": "Adults",
+    "Children": "Children",
+    "Ages13OrAbove": "Ages 13 or above",
+    "Ages0To12": "Ages 0-12",
+    "Search": "Search"
+  },
+  "Footer": {
+    "AllRightsReserved": "All rights reserved",
+    "ContactUs": "Contact Us"
+  }
+}

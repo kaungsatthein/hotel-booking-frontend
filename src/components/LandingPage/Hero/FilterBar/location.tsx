@@ -13,6 +13,7 @@ import {
   CommandList,
 } from "../../../ui/command";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const locations = [
   {
@@ -33,6 +34,8 @@ const FilterBar = () => {
   const [open, setOpen] = useState(false);
   const [location, setLocation] = useState("");
 
+  const t = useTranslations("FilterBar");
+
   return (
     <div className="flex items-center">
       <Bed className="w-5 h-5 mr-3 flex-shrink-0" />
@@ -46,7 +49,7 @@ const FilterBar = () => {
           >
             {location
               ? locations.find((loc) => loc.value === location)?.label
-              : "Select location..."}
+              : `${t("SelectLocation")}`}
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>

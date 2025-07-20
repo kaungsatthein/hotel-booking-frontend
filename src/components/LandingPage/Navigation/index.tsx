@@ -25,37 +25,39 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { getTranslations } from "next-intl/server";
 
-const navLinks: NavLinkProps[] = [
-  {
-    name: "Home",
-    href: "/",
-    icon: House,
-  },
-  {
-    name: "Hotels",
-    href: "/hotels",
-    icon: Hotel,
-  },
-  {
-    name: "Flights",
-    href: "/flights",
-    icon: TicketsPlane,
-  },
-  {
-    name: "Buses",
-    href: "/bus",
-    icon: Bus,
-  },
-  {
-    name: "My Bookings",
-    href: "/my-bookings",
-    icon: BookmarkCheck,
-  },
-];
-
-const MainNav = () => {
+export default async function MainNav() {
   const isAuthenticated = true; // Replace with your auth logic
+  const t = await getTranslations("Navigation");
+
+  const navLinks: NavLinkProps[] = [
+    {
+      name: t("Home"),
+      href: "/",
+      icon: House,
+    },
+    {
+      name: t("Hotels"),
+      href: "/hotels",
+      icon: Hotel,
+    },
+    {
+      name: t("Flights"),
+      href: "/flights",
+      icon: TicketsPlane,
+    },
+    {
+      name: t("Buses"),
+      href: "/bus",
+      icon: Bus,
+    },
+    {
+      name: t("MyBookings"),
+      href: "/my-bookings",
+      icon: BookmarkCheck,
+    },
+  ];
 
   return (
     <nav className=" sticky w-full top-0 z-50 bg-background/80 backdrop-blur-lg border-b supports-[backdrop-filter]:bg-background/60">
@@ -127,6 +129,4 @@ const MainNav = () => {
       </div>
     </nav>
   );
-};
-
-export default MainNav;
+}

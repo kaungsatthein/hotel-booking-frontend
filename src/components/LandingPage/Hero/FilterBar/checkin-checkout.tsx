@@ -6,11 +6,14 @@ import { Calendar as CalendarComponent } from "../../../ui/calendar";
 import { Button } from "../../../ui/button";
 import { Calendar } from "lucide-react";
 import { format, addDays } from "date-fns";
+import { useTranslations } from "next-intl";
 
 const CheckInCheckOut = () => {
   const [isDatePopoverOpen, setIsDatePopoverOpen] = useState(false);
   const [checkInDate, setCheckInDate] = useState<Date>();
   const [checkOutDate, setCheckOutDate] = useState<Date>();
+
+  const t = useTranslations("FilterBar");
 
   const handleCheckInSelect = (date: Date | undefined) => {
     setCheckInDate(date);
@@ -36,7 +39,7 @@ const CheckInCheckOut = () => {
     if (checkInDate) {
       return `${format(checkInDate, "MMM dd")} — Select checkout`;
     }
-    return "Check in - Check out date";
+    return t("CheckInCheckOut");
   };
 
   return (

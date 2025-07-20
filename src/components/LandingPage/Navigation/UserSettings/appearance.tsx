@@ -8,21 +8,24 @@ import {
   DropdownMenuRadioItem,
 } from "../../../ui/dropdown-menu";
 import { SunMoon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
-const appearanceOptions = [
-  { value: "light", label: "Light" },
-  { value: "dark", label: "Dark" },
-  { value: "system", label: "System" },
-];
-
 const Appearance = () => {
+  const t = useTranslations("UserSettings");
   const { theme, setTheme } = useTheme();
+
+  const appearanceOptions = [
+    { value: "light", label: t("Light") },
+    { value: "dark", label: t("Dark") },
+    { value: "system", label: t("System") },
+  ];
+
   return (
     <DropdownMenuSub>
       <DropdownMenuSubTrigger>
         <SunMoon className="mr-2 w-4 h-4" />
-        <span>Appearance</span>
+        <span>{t("Appearance")}</span>
       </DropdownMenuSubTrigger>
       <DropdownMenuPortal>
         <DropdownMenuSubContent>

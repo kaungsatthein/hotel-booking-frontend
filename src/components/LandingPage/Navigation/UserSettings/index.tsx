@@ -12,14 +12,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "../../../ui/avatar";
 import Notifications from "./notifications";
 import Appearance from "./appearance";
 import Language from "./language";
+import { getTranslations } from "next-intl/server";
 
 const user = {
-  name: "Kaung Satt Hein",
-  email: "kaungsatthein2742@gmail.com",
+  name: "Mya Hmue",
+  email: "myahmue302@gmail.com",
   image: "https://github.com/shadcn.png",
 };
 
-const UserSetting = () => {
+export default async function UserSetting() {
+  const t = await getTranslations("UserSettings");
   return (
     <div className="flex flex-row items-center">
       <Notifications />
@@ -54,12 +56,10 @@ const UserSetting = () => {
 
           <DropdownMenuItem className="text-red-600 ">
             <LogOut className=" w-4 h-4" />
-            <span>Log out</span>
+            <span>{t("Logout")}</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
   );
-};
-
-export default UserSetting;
+}
