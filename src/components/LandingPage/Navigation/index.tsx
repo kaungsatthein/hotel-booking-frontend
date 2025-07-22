@@ -62,7 +62,10 @@ export default async function MainNav() {
   return (
     <nav className=" sticky w-full top-0 z-50 bg-background/80 backdrop-blur-lg border-b supports-[backdrop-filter]:bg-background/60">
       <div className="flex flex-row items-center justify-between h-16 px-4 lg:px-8">
-        <Link href="/" className="text-2xl font-bold text-primary">
+        <Link
+          href="/"
+          className="text-2xl font-dm-sans font-bold text-primary font-sans"
+        >
           Travel Booking
         </Link>
         {/* laptop view */}

@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { DM_Sans, Noto_Sans_Myanmar } from "next/font/google";
+import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { routing } from "@/i18n/routing";
-import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
 });
 
-const notoSansMyanmar = Noto_Sans_Myanmar({
-  subsets: ["myanmar"],
-  weight: ["400", "600"],
-  variable: "--font-noto-sans-myanmar",
+const walone_bold = localFont({
+  src: "../../../public/fonts/Z06-Walone-Bold.ttf",
+  display: "swap",
+  variable: "--font-z06-walone-bold",
 });
 
 export const metadata: Metadata = {
@@ -30,13 +29,20 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${notoSansMyanmar.variable} antialiased`}
+        className={`antialiased 
+    ${dmSans.variable} 
+    ${walone_bold.variable} 
+  `}
+        style={{
+          fontFamily:
+            locale === "mm"
+              ? "var(--font-z06-walone-bold)"
+              : "var(--font-dm-sans)",
+        }}
       >
         <NextIntlClientProvider>
           <ThemeProvider

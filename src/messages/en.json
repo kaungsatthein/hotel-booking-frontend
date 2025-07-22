@@ -27,6 +27,12 @@
     "Ages0To12": "Ages 0-12",
     "Search": "Search"
   },
+  "NotFound": {
+    "PageNotFound": "Page Not Found",
+    "PageNotFoundDescription": "Sorry, the page you are looking for doesn't exist or has been moved.",
+    "GoBack": "Go Back",
+    "GoHome": "Go Home"
+  },
   "Footer": {
     "AllRightsReserved": "All rights reserved",
     "ContactUs": "Contact Us"
