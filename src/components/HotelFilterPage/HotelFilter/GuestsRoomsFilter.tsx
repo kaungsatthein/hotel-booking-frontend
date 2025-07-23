@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { useFilterContext } from "@/contexts/HotelFilterContext";
-import { Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 interface CounterProps {

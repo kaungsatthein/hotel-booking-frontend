@@ -2,7 +2,6 @@
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { PiggyBank } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useFilterContext } from "@/contexts/HotelFilterContext";
 

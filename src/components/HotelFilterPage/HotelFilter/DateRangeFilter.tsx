@@ -7,7 +7,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
-import { CalendarDays, CalendarFold, ChevronDown } from "lucide-react";
+import { CalendarDays, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { format } from "date-fns";
 import { useFilterContext } from "@/contexts/HotelFilterContext";
