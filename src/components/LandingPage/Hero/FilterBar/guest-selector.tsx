@@ -64,7 +64,9 @@ const GuestSelector = () => {
             <div className="flex items-center justify-between">
               <div>
                 <div className="font-medium">{t("Children")}</div>
-                <div className="text-sm text-muted-foreground">{t("Ages0To12")}</div>
+                <div className="text-sm text-muted-foreground">
+                  {t("Ages0To12")}
+                </div>
               </div>
               <div className="flex items-center space-x-2">
                 <Button

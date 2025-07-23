@@ -4,6 +4,7 @@ import { DM_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
+import { MainNav, FooterPage } from "@/components";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -51,7 +52,9 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <MainNav />
             {children}
+            <FooterPage />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

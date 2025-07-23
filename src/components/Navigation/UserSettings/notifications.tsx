@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Badge } from "../../../ui/badge";
+import { Badge } from "../../ui/badge";
 import { Bell } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import NotificationsInfo from "./notifications-info";

@@ -6,7 +6,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuRadioItem,
-} from "../../../ui/dropdown-menu";
+} from "../../ui/dropdown-menu";
 import { Globe } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";

@@ -1,17 +1,18 @@
+"use client";
 import Link from "next/link";
 import {
   navigationMenuTriggerStyle,
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-} from "../../ui/navigation-menu";
+} from "../ui/navigation-menu";
 import {
   BookmarkCheck,
   Bus,
   Hotel,
   House,
   TicketsPlane,
-  Hamburger,
+  Menu,
 } from "lucide-react";
 import { NavLinkProps } from "./props.type";
 import UserSetting from "./UserSettings";
@@ -25,11 +26,16 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { getTranslations } from "next-intl/server";
+import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
-export default async function MainNav() {
+export default function MainNav() {
   const isAuthenticated = true; // Replace with your auth logic
-  const t = await getTranslations("Navigation");
+  const t = useTranslations("Navigation");
+  const pathname = usePathname();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const navLinks: NavLinkProps[] = [
     {
@@ -59,6 +65,15 @@ export default async function MainNav() {
     },
   ];
 
+  const isActive = (href: string) => {
+    const pathWithoutLocale = pathname.replace(/^\/[^/]+/, "") || "/";
+    return pathWithoutLocale === href;
+  };
+
+  const handleLinkClick = () => {
+    setIsDrawerOpen(false);
+  };
+
   return (
     <nav className=" sticky w-full top-0 z-50 bg-background/80 backdrop-blur-lg border-b supports-[backdrop-filter]:bg-background/60">
       <div className="flex flex-row items-center justify-between h-16 px-4 lg:px-8">
@@ -76,10 +91,11 @@ export default async function MainNav() {
                 <NavigationMenuItem key={link.name}>
                   <Link
                     href={link.href}
-                    className={
-                      navigationMenuTriggerStyle() +
-                      " flex flex-row items-start gap-2"
-                    }
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "flex flex-row items-start gap-2",
+                      isActive(link.href) && "bg-primary text-white"
+                    )}
                   >
                     <link.icon className="h-4 w-4" />
                     <span>{link.name}</span>
@@ -93,10 +109,14 @@ export default async function MainNav() {
         <div className="flex items-center">
           {isAuthenticated ? <UserSetting /> : <UserSignUp />}
 
-          <Drawer direction="right">
+          <Drawer
+            direction="right"
+            open={isDrawerOpen}
+            onOpenChange={setIsDrawerOpen}
+          >
             <DrawerTrigger asChild>
               <Button variant="outline" size={"sm"} className="lg:hidden">
-                <Hamburger className="h-6 w-6" />
+                <Menu className="h-6 w-6" />
               </Button>
             </DrawerTrigger>
             <DrawerContent>
@@ -108,15 +128,17 @@ export default async function MainNav() {
               </DrawerHeader>
               <div>
                 <NavigationMenu>
-                  <NavigationMenuList className="flex flex-col items-start gap-2 ">
+                  <NavigationMenuList className="flex flex-col items-start gap-2 ml-4">
                     {navLinks.map((link) => (
                       <NavigationMenuItem key={link.name}>
                         <Link
                           href={link.href}
-                          className={
-                            navigationMenuTriggerStyle() +
-                            " flex flex-row items-start gap-2"
-                          }
+                          onClick={handleLinkClick}
+                          className={cn(
+                            navigationMenuTriggerStyle(),
+                            "flex flex-row items-start gap-2",
+                            isActive(link.href) && "bg-primary text-white"
+                          )}
                         >
                           <link.icon className="h-4 w-4" />
                           <span>{link.name}</span>

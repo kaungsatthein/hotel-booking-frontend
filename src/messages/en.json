@@ -36,5 +36,51 @@
   "Footer": {
     "AllRightsReserved": "All rights reserved",
     "ContactUs": "Contact Us"
+  },
+  "HotelFilter": {
+    "HotelFilter": "Hotel Filter",
+    "Hotels": "Hotels",
+    "SelectLocation": "Please select your location.",
+    "Location": "Location",
+    "PriceRange": "Price Range",
+    "PriceCategories": {
+      "AllCategories": "All Categories",
+      "Budget": "Budget (10,000 - 50,000 MMK)",
+      "MidRange": "Mid-range (50,000 - 150,000 MMK)",
+      "Luxury": "Luxury (150,000+ MMK)"
+    },
+    "DateRange": "Date Range",
+    "CheckIn": "Check-in",
+    "CheckOut": "Check-out",
+    "SelectDate": "Select date",
+    "GuestsRooms": "Guests & Rooms",
+    "Adults": "Adults",
+    "Children": "Children",
+    "Rooms": "Rooms",
+    "Amenities": "Amenities",
+    "AmenitiesOptions": {
+      "WiFi": "Free WiFi",
+      "Breakfast": "Breakfast Included",
+      "Pool": "Swimming Pool",
+      "Parking": "Free Parking",
+      "AirCon": "Air Conditioning"
+    },
+    "States": {
+      "Ayeyarwady": "Ayeyarwady Region",
+      "Bago": "Bago Region",
+      "Chin": "Chin State",
+      "Kachin": "Kachin State",
+      "Kayah": "Kayah State",
+      "Kayin": "Kayin State",
+      "Magway": "Magway Region",
+      "Mandalay": "Mandalay Region",
+      "Mon": "Mon State",
+      "Rakhine": "Rakhine State",
+      "Sagaing": "Sagaing Region",
+      "Shan": "Shan State",
+      "Tanintharyi": "Tanintharyi Region",
+      "Yangon": "Yangon Region",
+      "NaypyiTaw": "Naypyi Taw"
+    }
   }
 }

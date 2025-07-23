@@ -1,4 +1,5 @@
-import { Button } from "../../../ui/button";
+"use client";
+import { Button } from "../../ui/button";
 import { LogOut } from "lucide-react";
 import {
   DropdownMenu,
@@ -7,12 +8,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuGroup,
-} from "../../../ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "../../../ui/avatar";
+} from "../../ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar";
 import Notifications from "./notifications";
 import Appearance from "./appearance";
 import Language from "./language";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 const user = {
   name: "Mya Hmue",
@@ -20,8 +21,8 @@ const user = {
   image: "https://github.com/shadcn.png",
 };
 
-export default async function UserSetting() {
-  const t = await getTranslations("UserSettings");
+export default function UserSetting() {
+  const t = useTranslations("UserSettings");
   return (
     <div className="flex flex-row items-center">
       <Notifications />
