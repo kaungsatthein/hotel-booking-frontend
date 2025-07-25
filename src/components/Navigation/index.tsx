@@ -30,9 +30,11 @@ import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function MainNav() {
-  const isAuthenticated = true; // Replace with your auth logic
+  const { data: session } = useSession();
+  const isAuthenticated = !!session?.user;
   const t = useTranslations("Navigation");
   const pathname = usePathname();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -137,7 +139,7 @@ export default function MainNav() {
                           className={cn(
                             navigationMenuTriggerStyle(),
                             "flex flex-row items-start gap-2",
-                            isActive(link.href) && "bg-primary"
+                            isActive(link.href) && "bg-primary text-secondary"
                           )}
                         >
                           <link.icon className="h-4 w-4" />

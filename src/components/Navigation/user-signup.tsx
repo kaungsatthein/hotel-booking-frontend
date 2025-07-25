@@ -1,22 +1,26 @@
+"use client";
+
+import { signIn } from "next-auth/react";
 import { Button } from "@/components/ui/button";
-import { LogIn, ScanFace } from "lucide-react";
+import { ScanFace } from "lucide-react";
 
 const UserSignUp = () => {
+  const handleSignIn = async () => {
+    await signIn("google");
+  };
+
   return (
-    <div className="flex flex-row items-center">
-      <Button variant="link" size={"sm"}>
-        <div className="flex items-center gap-2">
-          <LogIn />
-          Login
-        </div>
-      </Button>
-      <Button variant="default" size={"sm"}>
-        <div className="flex items-center gap-2">
-          <ScanFace />
-          Sign Up
-        </div>
-      </Button>
-    </div>
+    <Button
+      onClick={handleSignIn}
+      variant="default"
+      size={"sm"}
+      className=" md: mr-2"
+    >
+      <div className="flex items-center gap-2">
+        <ScanFace />
+        Sign in with Google
+      </div>
+    </Button>
   );
 };
 

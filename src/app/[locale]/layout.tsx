@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { MainNav, FooterPage } from "@/components";
+import { SessionProvider } from "next-auth/react";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -45,18 +46,20 @@ export default async function RootLayout({
               : "var(--font-dm-sans)",
         }}
       >
-        <NextIntlClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <MainNav />
-            {children}
-            <FooterPage />
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        <SessionProvider>
+          <NextIntlClientProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <MainNav />
+              {children}
+              <FooterPage />
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </SessionProvider>
       </body>
     </html>
   );
