@@ -9,9 +9,6 @@ const nextConfig: NextConfig = {
     AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
     AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
     AUTH_URL: process.env.AUTH_URL,
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    AUTH_TRUST_HOST: process.env.AUTH_TRUST_HOST,
-    NODE_ENV: process.env.NODE_ENV,
   },
   images: {
     remotePatterns: [
