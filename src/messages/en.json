@@ -29,7 +29,7 @@
   },
   "NotFound": {
     "PageNotFound": "Page Not Found",
-    "PageNotFoundDescription": "Sorry, the page you are looking for doesn't exist or has been moved.",
+    "PageNotFoundDescription": "Sorry, the page you are looking for doesn't exist",
     "GoBack": "Go Back",
     "GoHome": "Go Home"
   },
@@ -40,7 +40,7 @@
   "HotelFilter": {
     "HotelFilter": "Hotel Filter",
     "Hotels": "Hotels",
-    "SelectLocation": "Please select your location.",
+    "SelectLocation": "Select Location",
     "Location": "Location",
     "PriceRange": "Price Range",
     "PriceCategories": {

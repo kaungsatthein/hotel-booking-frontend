@@ -63,7 +63,7 @@ const HotelFilter = () => {
       open={openSections[sectionKey]}
       onOpenChange={() => toggleSection(sectionKey)}
     >
-      <CollapsibleTrigger className="flex w-full items-center justify-between py-2 hover:bg-gray-50 rounded-md transition-colors">
+      <CollapsibleTrigger className="flex w-full items-center justify-between py-2 cursor-pointer rounded-md transition-colors">
         <div className="flex items-center gap-2">
           <Icon className="h-4 w-4" />
           <span className="text-sm font-semibold">{title}</span>

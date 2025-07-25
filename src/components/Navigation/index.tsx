@@ -94,7 +94,7 @@ export default function MainNav() {
                     className={cn(
                       navigationMenuTriggerStyle(),
                       "flex flex-row items-start gap-2",
-                      isActive(link.href) && "bg-primary text-white"
+                      isActive(link.href) && " bg-primary text-secondary"
                     )}
                   >
                     <link.icon className="h-4 w-4" />
@@ -137,7 +137,7 @@ export default function MainNav() {
                           className={cn(
                             navigationMenuTriggerStyle(),
                             "flex flex-row items-start gap-2",
-                            isActive(link.href) && "bg-primary text-white"
+                            isActive(link.href) && "bg-primary"
                           )}
                         >
                           <link.icon className="h-4 w-4" />
