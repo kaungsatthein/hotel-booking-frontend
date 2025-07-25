@@ -26,7 +26,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session }) {
       return session;
     },
     async redirect({ url, baseUrl }) {

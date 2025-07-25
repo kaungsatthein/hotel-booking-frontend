@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, MapPin } from "lucide-react";
+import Image from "next/image";
 import { Hotel } from "./HotelsView";
 
 interface HotelCardProps {
@@ -25,10 +26,13 @@ export const HotelCard = ({ hotel }: HotelCardProps) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 p-0">
       <div className="relative">
-        <img
+        <Image
           src={hotel.image}
           alt={hotel.name}
+          width={400}
+          height={192}
           className="w-full h-48 object-cover"
+          priority={false}
         />
         <div className="absolute top-3 right-3">
           <Badge variant="secondary" className="bg-white/90 text-black">
