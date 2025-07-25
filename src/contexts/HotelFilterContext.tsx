@@ -16,7 +16,6 @@ interface FilterContextType {
     increment: boolean
   ) => void;
   clearFilters: () => void;
-  applyFilters: () => void;
 }
 
 const FilterContext = createContext<FilterContextType | undefined>(undefined);
@@ -24,14 +23,8 @@ const FilterContext = createContext<FilterContextType | undefined>(undefined);
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const filterHook = useHotelFilters();
 
-  const applyFilters = () => {
-    // This will trigger the hotel search with current filters
-    console.log("Applying filters:", filterHook.filters);
-    // You can emit an event or call a callback here
-  };
-
   return (
-    <FilterContext.Provider value={{ ...filterHook, applyFilters }}>
+    <FilterContext.Provider value={{ ...filterHook }}>
       {children}
     </FilterContext.Provider>
   );
