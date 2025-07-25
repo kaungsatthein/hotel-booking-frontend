@@ -15,13 +15,23 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  trustHost: true,
   debug: process.env.NODE_ENV === "development",
+  session: {
+    strategy: "jwt",
+  },
   callbacks: {
+    async jwt({ token, account }) {
+      if (account) {
+        token.accessToken = account.access_token;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      return session;
+    },
     async redirect({ url, baseUrl }) {
-      // Allows relative callback URLs
+      // Handle redirects properly for Netlify
       if (url.startsWith("/")) return `${baseUrl}${url}`;
-      // Allows callback URLs on the same origin
       else if (new URL(url).origin === baseUrl) return url;
       return baseUrl;
     },
