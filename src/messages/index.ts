@@ -1,7 +1,9 @@
 import en from "./en.json";
 import mm from "./mm.json";
 
-export default {
+const messages = {
   en,
   mm,
 };
+
+export default messages;
