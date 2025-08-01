@@ -1,16 +1,5 @@
 "use client";
-import {
-  Wifi,
-  Car,
-  Coffee,
-  Dumbbell,
-  Users,
-  Calendar,
-  CreditCard,
-} from "lucide-react";
-import { Button } from "../ui/button";
-import { Card, CardContent } from "../ui/card";
-import { Separator } from "../ui/separator";
+import { Wifi, Car, Coffee, Dumbbell, Users } from "lucide-react";
 import { useSession } from "next-auth/react";
 import ImageSection from "./ImageSection";
 import HotelDescriptionSection from "./HotelDescriptionSection";
