@@ -6,12 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Star, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Hotel } from "./HotelsView";
+import { useRouter } from "next/navigation";
 
 interface HotelCardProps {
   hotel: Hotel;
 }
 
 export const HotelCard = ({ hotel }: HotelCardProps) => {
+  const router = useRouter();
+  const handleDetailRoute = () => {
+    router.push(`/hotels/${hotel.id}`);
+  };
+
   const renderStars = (stars: number) => {
     return Array.from({ length: 5 }, (_, index) => (
       <Star
@@ -71,7 +77,11 @@ export const HotelCard = ({ hotel }: HotelCardProps) => {
 
           {/* Action Buttons */}
           <div className="flex gap-2 pt-2">
-            <Button variant="outline" className="flex-1">
+            <Button
+              variant="outline"
+              className="flex-1"
+              onClick={handleDetailRoute}
+            >
               View Details
             </Button>
             <Button className="flex-1">Book Now</Button>

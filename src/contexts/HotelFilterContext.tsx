@@ -1,7 +1,7 @@
 "use client";
 
 import { HotelFilters, useHotelFilters } from "@/lib/hooks/useHotelFIlters";
-import { createContext, useContext, ReactNode } from "react";
+import { createContext, useContext, ReactNode, useState } from "react";
 
 interface FilterContextType {
   filters: HotelFilters;
@@ -17,21 +17,39 @@ interface FilterContextType {
   ) => void;
   clearFilters: () => void;
   applyFilters: () => void;
+  isFiltersApplied: boolean;
 }
 
 const FilterContext = createContext<FilterContextType | undefined>(undefined);
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const filterHook = useHotelFilters();
+  const [isFiltersApplied, setIsFiltersApplied] = useState(false);
 
   const applyFilters = () => {
     // This will trigger the hotel search with current filters
     console.log("Applying filters:", filterHook.filters);
-    // You can emit an event or call a callback here
+    setIsFiltersApplied(true);
+    
+    // Add any additional logic here:
+    // - Trigger hotel search API
+    // - Show loading state
+    // - Scroll to results
+    // - Analytics tracking
+  };
+
+  const clearFilters = () => {
+    filterHook.clearFilters();
+    setIsFiltersApplied(false);
   };
 
   return (
-    <FilterContext.Provider value={{ ...filterHook, applyFilters }}>
+    <FilterContext.Provider value={{ 
+      ...filterHook, 
+      applyFilters, 
+      clearFilters,
+      isFiltersApplied 
+    }}>
       {children}
     </FilterContext.Provider>
   );
