@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { MainNav, FooterPage } from "@/components";
 import { SessionProvider } from "next-auth/react";
+import { FilterProviders } from "@/contexts/FilterProvider";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -54,9 +55,11 @@ export default async function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <MainNav />
-              {children}
-              <FooterPage />
+              <FilterProviders>
+                <MainNav />
+                {children}
+                <FooterPage />
+              </FilterProviders>
             </ThemeProvider>
           </NextIntlClientProvider>
         </SessionProvider>

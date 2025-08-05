@@ -10,12 +10,12 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { CalendarDays, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { format } from "date-fns";
-import { useFilterContext } from "@/contexts/HotelFilterContext";
+import { useHotelFilterContext } from "@/contexts/HotelFilterContext";
 
 export const DateRangeFilter = () => {
   const t = useTranslations("HotelFilter");
   const { filters, handleCheckInSelect, handleCheckOutSelect } =
-    useFilterContext();
+    useHotelFilterContext();
 
   const formatDate = (date: Date | undefined) => {
     return date ? format(date, "MMM dd, yyyy") : t("SelectDate");

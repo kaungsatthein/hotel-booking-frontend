@@ -1,9 +1,9 @@
-import { useFilterContext } from "@/contexts/HotelFilterContext";
+import { useHotelFilterContext } from "@/contexts/HotelFilterContext";
 import { useTranslations } from "next-intl";
 import { FilterItem } from "@/components/common/filterBadge";
 
 export const useHotelFilterBadges = () => {
-  const { filters, updateFilter } = useFilterContext();
+  const { filters, updateFilter, clearFilters } = useHotelFilterContext();
   const t = useTranslations("HotelFilter");
 
   const getActiveFilters = (): FilterItem[] => {
@@ -107,6 +107,7 @@ export const useHotelFilterBadges = () => {
     updateFilter("rooms", 1);
     updateFilter("checkInDate", undefined);
     updateFilter("checkOutDate", undefined);
+    clearFilters();
   };
 
   return {

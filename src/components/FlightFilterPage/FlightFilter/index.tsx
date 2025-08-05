@@ -9,11 +9,11 @@ import {
 } from "@/components/ui/collapsible";
 import { useTranslations } from "next-intl";
 import { LocationFilter } from "./LocationFilter";
-import { useHotelFilterContext } from "@/contexts/HotelFilterContext";
+import { useFlightFilterContext } from "@/contexts/FlightFilterContext";
 import { DateRangeFilter } from "./DateRangeFilter";
-import { GuestsRoomsFilter } from "./GuestsRoomsFilter";
+import { PassengersFilter } from "./PassengersFilter";
 import { PriceRangeFilter } from "./PriceRangeFilter";
-import { AmenitiesFilter } from "./AmenitiesFilter";
+import { AirlinesFilter } from "./AirlinesFilter";
 import {
   ChevronDown,
   ChevronUp,
@@ -21,21 +21,21 @@ import {
   PiggyBank,
   CalendarFold,
   Users,
-  Wifi,
+  Plane,
 } from "lucide-react";
 import { useState } from "react";
 
-const HotelFilter = () => {
-  const t = useTranslations("HotelFilter");
-  const { applyFilters, clearFilters } = useHotelFilterContext();
+const FlightFilter = () => {
+  const t = useTranslations("FlightFilter");
+  const { applyFilters, clearFilters } = useFlightFilterContext();
 
   // State to manage which sections are open
   const [openSections, setOpenSections] = useState({
     location: false,
-    priceRange: false,
     dateRange: false,
-    guestsRooms: false,
-    amenities: false,
+    passengers: false,
+    priceRange: false,
+    airlines: false,
   });
 
   // State to manage if the entire filter is collapsed
@@ -85,8 +85,8 @@ const HotelFilter = () => {
         onOpenChange={(open) => setIsFilterCollapsed(!open)}
       >
         <CollapsibleTrigger asChild>
-          <div className=" flex items-center justify-between mb-4 cursor-pointer rounded transition-colors">
-            <span className="font-bold text-lg">{t("HotelFilter")}</span>
+          <div className="flex items-center justify-between mb-4 cursor-pointer rounded transition-colors">
+            <span className="font-bold text-lg">Flight Filter</span>
             {isFilterCollapsed ? (
               <ChevronDown className="h-4 w-4" />
             ) : (
@@ -99,10 +99,28 @@ const HotelFilter = () => {
           <div className="flex flex-col gap-4">
             <CollapsibleSection
               sectionKey="location"
-              title={t("Location")}
+              title={t("Route")}
               icon={MapPin}
             >
               <LocationFilter />
+            </CollapsibleSection>
+            <Separator />
+
+            <CollapsibleSection
+              sectionKey="dateRange"
+              title={t("Dates")}
+              icon={CalendarFold}
+            >
+              <DateRangeFilter />
+            </CollapsibleSection>
+            <Separator />
+
+            <CollapsibleSection
+              sectionKey="passengers"
+              title={t("Passengers")}
+              icon={Users}
+            >
+              <PassengersFilter />
             </CollapsibleSection>
             <Separator />
 
@@ -116,35 +134,17 @@ const HotelFilter = () => {
             <Separator />
 
             <CollapsibleSection
-              sectionKey="dateRange"
-              title={t("DateRange")}
-              icon={CalendarFold}
+              sectionKey="airlines"
+              title={t("Airlines")}
+              icon={Plane}
             >
-              <DateRangeFilter />
-            </CollapsibleSection>
-            <Separator />
-
-            <CollapsibleSection
-              sectionKey="guestsRooms"
-              title={t("GuestsRooms")}
-              icon={Users}
-            >
-              <GuestsRoomsFilter />
-            </CollapsibleSection>
-            <Separator />
-
-            <CollapsibleSection
-              sectionKey="amenities"
-              title={t("Amenities")}
-              icon={Wifi}
-            >
-              <AmenitiesFilter />
+              <AirlinesFilter />
             </CollapsibleSection>
 
             <div className="mt-4 flex flex-col gap-2">
-              <Button onClick={applyFilters}>Apply Filters</Button>
+              <Button onClick={applyFilters}>{t("SearchFlights")}</Button>
               <Button variant="outline" onClick={clearFilters}>
-                Clear All
+                {t("ClearAll")}
               </Button>
             </div>
           </div>
@@ -154,4 +154,4 @@ const HotelFilter = () => {
   );
 };
 
-export default HotelFilter;
+export default FlightFilter;

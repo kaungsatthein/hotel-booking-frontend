@@ -11,11 +11,11 @@ import {
 import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { myanmarStates } from "@/constants/myanmarStates";
-import { useFilterContext } from "@/contexts/HotelFilterContext";
+import { useHotelFilterContext } from "@/contexts/HotelFilterContext";
 
 export const LocationFilter = () => {
   const t = useTranslations("HotelFilter");
-  const { filters, updateFilter } = useFilterContext();
+  const { filters, updateFilter } = useHotelFilterContext();
 
   return (
     <DropdownMenu>

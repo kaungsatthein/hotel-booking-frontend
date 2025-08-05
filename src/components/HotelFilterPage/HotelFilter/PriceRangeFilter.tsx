@@ -3,7 +3,7 @@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { useTranslations } from "next-intl";
-import { useFilterContext } from "@/contexts/HotelFilterContext";
+import { useHotelFilterContext } from "@/contexts/HotelFilterContext";
 
 const priceCategories = [
   { value: "allCategories", translationKey: "AllCategories" },
@@ -14,7 +14,7 @@ const priceCategories = [
 
 export const PriceRangeFilter = () => {
   const t = useTranslations("HotelFilter");
-  const { filters, updateFilter } = useFilterContext();
+  const { filters, updateFilter } = useHotelFilterContext();
 
   const handlePriceCategoryChange = (value: string) => {
     updateFilter("selectedPriceCategory", value);

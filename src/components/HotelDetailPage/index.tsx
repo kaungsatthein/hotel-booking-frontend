@@ -7,6 +7,7 @@ import Amenities from "./Amenities";
 import { HotelData } from "@/types/hotel";
 import GuestReview from "./GuestReview";
 import ExistingReview from "./ExistingReview";
+import { Card, CardContent } from "../ui/card";
 
 const HotelDetailPage = () => {
   // const { id } = useParams();
@@ -81,79 +82,13 @@ const HotelDetailPage = () => {
         </div>
 
         {/* Right Column - Booking Card */}
-        {/* <div className="lg:col-span-1">
+        <div className="lg:col-span-1">
           <div className="sticky top-6">
             <Card>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <div className="text-center">
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <span className="text-3xl font-bold text-primary">
-                        ${hotelData.price}
-                      </span>
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      per night
-                    </span>
-                  </div>
-
-                  <Separator />
-
-                  <div className="space-y-3">
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Check-in / Check-out
-                      </label>
-                      <div className="flex items-center gap-2 p-3 border rounded-lg">
-                        <Calendar className="w-4 h-4 text-muted-foreground" />
-                        <span className="text-sm">Select dates</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Guests
-                      </label>
-                      <div className="flex items-center gap-2 p-3 border rounded-lg">
-                        <Users className="w-4 h-4 text-muted-foreground" />
-                        <span className="text-sm">2 guests, 1 room</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Button className="w-full" size="lg">
-                    <CreditCard className="w-4 h-4 mr-2" />
-                    Book Now
-                  </Button>
-
-                  <div className="text-center">
-                    <span className="text-xs text-muted-foreground">
-                      Free cancellation until 24 hours before check-in
-                    </span>
-                  </div>
-
-                  <Separator />
-
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>Room rate (2 nights)</span>
-                      <span>${hotelData.price * 2}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Taxes & fees</span>
-                      <span>$24</span>
-                    </div>
-                    <Separator />
-                    <div className="flex justify-between font-semibold">
-                      <span>Total</span>
-                      <span>${hotelData.price * 2 + 24}</span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
+              <CardContent>hello</CardContent>
             </Card>
-          </div> 
-        </div>*/}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
-import { LandingPage, CityGalleryPage } from "@/components";
+import { LandingPage } from "@/components";
 
 export default function Home() {
   return (
     <div>
       <LandingPage />
-      <CityGalleryPage />
+      {/* <CityGalleryPage /> */}
     </div>
   );
 }

@@ -1,22 +1,22 @@
 "use client";
 
 import { FilterBadges } from "@/components/common/filterBadge";
-import { useHotelFilterBadges } from "@/lib/hooks/useHotelFilterBadges";
-import { useHotelFilterContext } from "@/contexts/HotelFilterContext";
+import { useFlightFilterBadges } from "@/lib/hooks/useFlightFilterBadges";
+import { useFlightFilterContext } from "@/contexts/FlightFilterContext";
 
-interface HotelsHeaderProps {
-  hotelCount: number;
+interface FlightsHeaderProps {
+  flightCount: number;
 }
 
-export const HotelsHeader = ({ hotelCount }: HotelsHeaderProps) => {
+export const FlightsHeader = ({ flightCount }: FlightsHeaderProps) => {
   const { activeFilters, removeFilter, clearAllFilters } =
-    useHotelFilterBadges();
-  const { isFiltersApplied } = useHotelFilterContext();
+    useFlightFilterBadges();
+  const { isFiltersApplied } = useFlightFilterContext();
 
   return (
     <div className="flex justify-between items-center mb-6">
       <div className="flex items-center gap-2">
-        <p className="text-muted-foreground">We found {hotelCount} hotels.</p>
+        <p className="text-muted-foreground">We found {flightCount} flights.</p>
       </div>
       {isFiltersApplied && activeFilters.length > 0 && (
         <FilterBadges

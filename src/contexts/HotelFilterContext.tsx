@@ -20,17 +20,19 @@ interface FilterContextType {
   isFiltersApplied: boolean;
 }
 
-const FilterContext = createContext<FilterContextType | undefined>(undefined);
+const HotelFilterContext = createContext<FilterContextType | undefined>(
+  undefined
+);
 
-export const FilterProvider = ({ children }: { children: ReactNode }) => {
-  const filterHook = useHotelFilters();
+export const HotelFilterProvider = ({ children }: { children: ReactNode }) => {
+  const hotelFilters = useHotelFilters();
   const [isFiltersApplied, setIsFiltersApplied] = useState(false);
 
   const applyFilters = () => {
     // This will trigger the hotel search with current filters
-    console.log("Applying filters:", filterHook.filters);
+    console.log("Applying filters:", hotelFilters.filters);
     setIsFiltersApplied(true);
-    
+
     // Add any additional logic here:
     // - Trigger hotel search API
     // - Show loading state
@@ -39,26 +41,30 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const clearFilters = () => {
-    filterHook.clearFilters();
+    hotelFilters.clearFilters();
     setIsFiltersApplied(false);
   };
 
   return (
-    <FilterContext.Provider value={{ 
-      ...filterHook, 
-      applyFilters, 
-      clearFilters,
-      isFiltersApplied 
-    }}>
+    <HotelFilterContext.Provider
+      value={{
+        ...hotelFilters,
+        applyFilters,
+        clearFilters,
+        isFiltersApplied,
+      }}
+    >
       {children}
-    </FilterContext.Provider>
+    </HotelFilterContext.Provider>
   );
 };
 
-export const useFilterContext = () => {
-  const context = useContext(FilterContext);
+export const useHotelFilterContext = () => {
+  const context = useContext(HotelFilterContext);
   if (!context) {
-    throw new Error("useFilterContext must be used within FilterProvider");
+    throw new Error(
+      "useHotelFilterContext must be used within HotelFilterProvider"
+    );
   }
   return context;
 };

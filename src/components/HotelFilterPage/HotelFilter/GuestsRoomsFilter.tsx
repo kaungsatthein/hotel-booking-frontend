@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useFilterContext } from "@/contexts/HotelFilterContext";
+import { useHotelFilterContext } from "@/contexts/HotelFilterContext";
 import { useTranslations } from "next-intl";
 
 interface CounterProps {
@@ -46,7 +46,7 @@ const Counter = ({
 
 export const GuestsRoomsFilter = () => {
   const t = useTranslations("HotelFilter");
-  const { filters, handleGuestChange } = useFilterContext();
+  const { filters, handleGuestChange } = useHotelFilterContext();
 
   return (
     <div className="flex flex-col gap-3">

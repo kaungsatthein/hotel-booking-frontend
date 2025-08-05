@@ -4,7 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Wifi, Coffee, Car, Waves, Snowflake } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useFilterContext } from "@/contexts/HotelFilterContext";
+import { useHotelFilterContext } from "@/contexts/HotelFilterContext";
 
 const amenitiesOptions = [
   { id: "WiFi", translationKey: "WiFi", icon: Wifi },
@@ -16,7 +16,7 @@ const amenitiesOptions = [
 
 export const AmenitiesFilter = () => {
   const t = useTranslations("HotelFilter");
-  const { filters, updateFilter } = useFilterContext();
+  const { filters, updateFilter } = useHotelFilterContext();
 
   const handleAmenityChange = (amenityId: string, checked: boolean) => {
     const currentAmenities = filters.selectedAmenities;
