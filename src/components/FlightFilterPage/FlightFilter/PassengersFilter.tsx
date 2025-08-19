@@ -63,34 +63,8 @@ export const PassengersFilter = () => {
 
   return (
     <div className="space-y-4">
-      {/* Cabin Class */}
-      <div>
-        <label className="text-sm font-medium mb-2 block">{t("CabinClass")}</label>
-        <RadioGroup
-          value={filters.cabinClass}
-          onValueChange={(value: "economy" | "business" | "first") =>
-            updateFilter("cabinClass", value)
-          }
-          className="space-y-2"
-        >
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="economy" id="economy" />
-            <Label htmlFor="economy">{t("Economy")}</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="business" id="business" />
-            <Label htmlFor="business">{t("Business")}</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="first" id="first" />
-            <Label htmlFor="first">{t("FirstClass")}</Label>
-          </div>
-        </RadioGroup>
-      </div>
-
       {/* Passengers */}
       <div>
-        <label className="text-sm font-medium  block">{t("Passengers")}</label>
         <div className="space-y-1">
           <PassengerCounter
             label={t("Adults")}

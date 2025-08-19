@@ -5,28 +5,29 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Plane, Users } from "lucide-react";
 import { Flight } from "./FlightsView";
+import { useRouter } from "next/navigation";
 
 interface FlightCardProps {
   flight: Flight;
 }
 
 export const FlightCard = ({ flight }: FlightCardProps) => {
+  const router = useRouter();
   const handleBookFlight = () => {
     // Handle flight booking logic
     console.log("Booking flight:", flight.id);
   };
 
   const handleViewDetails = () => {
-    // Handle view details logic
-    console.log("View details for flight:", flight.id);
+    router.push(`/flights/${flight.id}`);
   };
 
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <CardContent className="p-6">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <CardContent>
+        <div className="flex flex-col gap-6">
           {/* Flight Info Section */}
-          <div className="flex-1 space-y-4">
+          <div className="flex-1 space-y-6">
             {/* Airline and Flight Number */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -75,11 +76,6 @@ export const FlightCard = ({ flight }: FlightCardProps) => {
                     <div className="text-xs text-muted-foreground">
                       {flight.duration}
                     </div>
-                    {flight.stops > 0 && (
-                      <div className="text-xs text-orange-600 font-medium">
-                        {flight.stops} stop{flight.stops > 1 ? "s" : ""}
-                      </div>
-                    )}
                   </div>
                   <div className="flex-1 h-px bg-border"></div>
                 </div>
@@ -106,27 +102,11 @@ export const FlightCard = ({ flight }: FlightCardProps) => {
                   {flight.cabinClass}
                 </Badge>
               </div>
-              {flight.stops === 0 && (
-                <Badge
-                  variant="outline"
-                  className="text-xs bg-green-50 text-green-700 border-green-200"
-                >
-                  Non-stop
-                </Badge>
-              )}
             </div>
-
-            {/* Stop Details */}
-            {flight.stopDetails && flight.stopDetails.length > 0 && (
-              <div className="text-xs text-muted-foreground">
-                <span className="font-medium">Stops: </span>
-                {flight.stopDetails.join(", ")}
-              </div>
-            )}
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col gap-2 lg:w-48">
+          <div className="flex flex-col gap-4">
             <Button className="w-full" onClick={handleBookFlight}>
               Book Flight
             </Button>

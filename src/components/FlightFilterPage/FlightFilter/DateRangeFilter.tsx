@@ -7,8 +7,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { useTranslations } from "next-intl";
@@ -25,30 +23,11 @@ export const DateRangeFilter = () => {
 
   return (
     <div className="space-y-4">
-      {/* Trip Type Selection */}
-      <div>
-        <label className="text-sm font-medium mb-2 block">{t("TripType")}</label>
-        <RadioGroup
-          value={filters.tripType}
-          onValueChange={(value: "oneWay" | "roundTrip") =>
-            updateFilter("tripType", value)
-          }
-          className="flex gap-2"
-        >
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="roundTrip" id="roundTrip" />
-            <Label htmlFor="roundTrip">{t("RoundTrip")}</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="oneWay" id="oneWay" />
-            <Label htmlFor="oneWay">{t("OneWay")}</Label>
-          </div>
-        </RadioGroup>
-      </div>
-
       {/* Departure Date */}
       <div>
-        <label className="text-sm font-medium mb-1 block">{t("DepartureDate")}</label>
+        <label className="text-sm font-medium mb-1 block">
+          {t("DepartureDate")}
+        </label>
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -76,7 +55,9 @@ export const DateRangeFilter = () => {
       {/* Return Date - Only show for round trip */}
       {filters.tripType === "roundTrip" && (
         <div>
-          <label className="text-sm font-medium mb-1 block">{t("ReturnDate")}</label>
+          <label className="text-sm font-medium mb-1 block">
+            {t("ReturnDate")}
+          </label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
