@@ -1,16 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 import { Minus, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useFlightFilterContext } from "@/contexts/FlightFilterContext";
 
 export const PassengersFilter = () => {
   const t = useTranslations("FlightFilter");
-  const { filters, updateFilter, handlePassengerChange } =
-    useFlightFilterContext();
+  const { filters, handlePassengerChange } = useFlightFilterContext();
 
   const PassengerCounter = ({
     label,

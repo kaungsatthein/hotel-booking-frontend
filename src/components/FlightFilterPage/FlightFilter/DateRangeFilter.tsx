@@ -14,12 +14,8 @@ import { useFlightFilterContext } from "@/contexts/FlightFilterContext";
 
 export const DateRangeFilter = () => {
   const t = useTranslations("FlightFilter");
-  const {
-    filters,
-    updateFilter,
-    handleDepartureDateSelect,
-    handleReturnDateSelect,
-  } = useFlightFilterContext();
+  const { filters, handleDepartureDateSelect, handleReturnDateSelect } =
+    useFlightFilterContext();
 
   return (
     <div className="space-y-4">
